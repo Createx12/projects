@@ -1,0 +1,29 @@
+%title {
+   text-align: $tac;
+   font-weight: $fw;
+   font-style: $fs;
+   font-family: $ff;
+   font-size: 48px;
+   line-height: 58px;
+   color: $black;
+}
+%sub-title {
+   font-weight: $fw;
+   font-style: $fs;
+   font-family: $ff;
+   font-size: 24px;
+   line-height: 29px;
+   color: $black;
+}
+%text {
+   font-style: $fs;
+   font-family: $ff;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 130%;
+}
+%a-hover {
+   color: $white;
+   text-transform: uppercase;
+   transition: color 0.275s ease;
+}

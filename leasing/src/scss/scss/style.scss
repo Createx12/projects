@@ -1,0 +1,679 @@
+@import "peremen.scss";
+@import "hablon.scss";
+
+html,
+body {
+   @extend %text;
+
+   height: 100%;
+   overflow-x: hidden;
+}
+.wrapper {
+   display: flex;
+   flex-direction: column;
+
+   position: relative;
+   min-height: 100%;
+}
+.container {
+   margin: 0 auto;
+   max-width: 1250px;
+}
+.logo {
+   margin-right: auto;
+}
+.header__nav-item--active {
+   color: $blue;
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// INDEX HTML
+// HEADER
+.header {
+   background-color: $black;
+   padding-top: $mp40;
+
+   &__top {
+      font-weight: 700;
+      line-height: 19px;
+   }
+   &__main {
+      position: absolute;
+      right: 0;
+      left: 0;
+      z-index: 5;
+
+      margin-bottom: $mp150;
+      background-color: transparent;
+   }
+   &__inner {
+      display: flex;
+   }
+   &__inner--top {
+      align-items: flex-end;
+   }
+   &__nav {
+      display: flex;
+      column-gap: 35px;
+   }
+   &__nav-item a {
+      color: #fff;
+      text-transform: uppercase;
+      transition: color 0.275s ease;
+   }
+   &__nav-item a:hover {
+      color: $blue;
+   }
+}
+
+// MAIN
+.main {
+   flex-grow: 1;
+
+   .main-wrap {
+      position: relative;
+      color: $white;
+   }
+   &__inner {
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      top: 247px;
+      left: 0px;
+      right: 0px;
+      z-index: 5;
+
+      align-items: $tac;
+   }
+   &__title {
+      padding-bottom: 38px;
+
+      font-weight: 700;
+      font-size: 96px;
+      line-height: 116px;
+   }
+   &__btn {
+      display: inline-block;
+
+      padding: 23px;
+      max-width: 430px;
+      width: 100%;
+
+      text-align: $tac;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 44px;
+      text-transform: uppercase;
+
+      background-color: #151515;
+      transition: $transition;
+   }
+   &__btn:hover {
+      scale: $scale;
+   }
+
+   // swiper-slider
+   &__slider {
+      height: 100%;
+      width: 100%;
+
+      text-align: $tac;
+      margin-bottom: $mp150;
+   }
+   .swiper {
+   }
+   .swiper::after {
+      content: "";
+      background-color: rgba(21, 21, 21, 0.3);
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+   }
+   .swiper-wrapper {
+      display: flex;
+   }
+   .swiper-slide {
+      height: 100vh;
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: default;
+   }
+   .swiper-pagination-bullet {
+      width: 120px;
+      height: 3px;
+      background-color: $black;
+      border-radius: 0;
+      opacity: 1;
+      margin: 0 15px !important;
+   }
+   .swiper-pagination-horizontal {
+      bottom: var(--swiper-pagination-bottom, 60px);
+      top: var(--swiper-pagination-top, auto);
+      left: 0;
+      width: 100%;
+   }
+   .swiper-pagination-bullet-active {
+      height: 6px;
+      background-color: #fff;
+   }
+
+   // why-lease
+   &__why {
+      margin-bottom: $mp150;
+
+      color: $black;
+      @extend %sub-title;
+   }
+
+   &__why-title {
+      margin-bottom: $mp50;
+      @extend %title;
+   }
+  
+   .why-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 60px;
+
+      &__item {
+         display: flex;
+         flex-direction: column;
+         align-items: $tac;
+      }
+
+      &__item-img {
+         transition: $transition;
+         margin-bottom: $mp30;
+      }
+      &__item-img:hover {
+         scale: $scale;
+      }
+
+      &__item-title {
+         margin-bottom: $mp30;
+      }
+
+      &__item--txt {
+         max-width: 270px;
+
+         text-align-last: left;
+         @extend %text;
+      }
+   }
+
+   // how-does
+   .how-does {
+      color: $black;
+      margin-bottom: $mp150;
+
+      &__inner {
+         max-width: 600px;
+         margin: 0 auto;
+      }
+
+      &__title {
+         @extend %title;
+         margin-bottom: $mp50;
+      }
+      &__txt{
+         margin-bottom: $mp50;
+      }
+      &__sub-title {
+         margin-bottom: $mp50;
+
+         @extend %sub-title;
+      }
+
+      &__content {
+         display: flex;
+         flex-direction: column;
+
+         margin-bottom: 70px;
+         counter-reset: my-counter;
+      }
+      &__content-item {
+         position: relative;
+         box-sizing: content-box;
+
+         min-height: 63px;
+         margin-left: auto;
+         padding: 19px 0 19px 240px;
+
+         counter-increment: my-counter;
+         list-style-type: none;
+      }
+      &__content-item::before {
+         content: counter(my-counter);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         position: absolute;
+         top: 0px;
+         left: 0px;
+
+         height: 100px;
+         width: 100px;
+
+         font-weight: 700;
+         font-size: 48px;
+         line-height: 58px;
+         color: #fff;
+         background-color: #0066ff;
+
+         border-radius: 50%;
+      }
+      &__content-item:hover::before {
+         // animation: my-counter .275s ease;
+      }
+      // @keyframes my-counter {
+      //    0% {
+      //       border-radius: 50%;
+      //    }
+      //    50% {
+      //       border-radius: 25%;
+      //    }
+      //    100% {
+      //       border-radius: 0%;
+      //    }
+      // }
+      &__content-item {
+         width: 270px;
+      }
+      .how-does__content-item + .how-does__content-item {
+         margin-top: 40px;
+      }
+
+      &__img {
+         position: relative;
+         margin-right: 140px;
+      }
+      &__img span {
+         display: inline-block;
+
+         position: absolute;
+         top: calc(50% - 23.5px);
+         left: 35px;
+
+         font-weight: 700;
+         font-size: 48px;
+         line-height: 58px;
+         color: white;
+      }
+
+      &__txt-bottom {
+      }
+   }
+
+   // welcome
+   .welcome {
+      margin-bottom: 150px;
+      color: #151515;
+
+      &__inner {
+      }
+
+      &__title {
+         @extend %title;
+         margin-bottom: $mp20;
+      }
+
+      &__sub-title {
+         @extend %sub-title;
+         margin-bottom: $mp50;
+         text-align: $tac;
+      }
+
+      &__video {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   }
+
+   // things
+   .things {
+      margin-bottom: 150px;
+      color: #151515;
+
+      &__title {
+         @extend %title;
+         margin-bottom: $mp20;
+      }
+
+      &__txt {
+         margin: 0 auto 50px;
+         max-width: 580px;
+
+         text-align: left;
+      }
+
+      &__content {
+         display: flex;
+         justify-content: center;
+         column-gap: 40px;
+      }
+
+      &__content-item {
+         max-width: 270px;
+      }
+
+      &__img {
+         margin-bottom: 20px;
+      }
+   }
+}
+.main--new-cars {
+   padding: $mp100 0 $mp150 0;
+}
+
+// FOOTER
+.footer {
+   background-color: #151515;
+   color: #e8e8e8;
+
+   padding: 50px 0px 32px 0px;
+   // margin-top: auto;
+   &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   // footer__menu
+   &__menu {
+      width: 100%;
+      padding: 0 30px;
+      margin-bottom: 50px;
+
+      display: flex;
+      justify-content: space-around;
+      column-gap: 20px;
+   }
+   &__menu-list {
+   }
+   &__menu-item + &__menu-item {
+      padding-top: 20px;
+   }
+   &__menu-item:first-child {
+      cursor: default;
+   }
+   &__menu-item a {
+      display: inline-block;
+      transition: all 0.275s ease;
+   }
+   &__menu-item a:hover {
+      color: #0066ff;
+      scale: 1.2;
+      letter-spacing: 0.035rem;
+   }
+   &__menu-title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+
+      margin-bottom: 20px;
+   }
+   &__menu-link {
+      font-size: 16px;
+      line-height: 130%;
+   }
+
+   // footer__apps
+   &__apps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 40px;
+
+      margin-bottom: 50px;
+   }
+
+   &__apps-item {
+   }
+
+   &__apps-link img {
+      transition: scale 0.275s ease;
+   }
+   &__apps-link img:hover {
+      scale: 1.2;
+   }
+
+   // footer__par
+   &__paragraph {
+      width: 806px;
+      margin: 0 auto 30px;
+
+      text-align: center;
+   }
+
+   &__paragraph-txt {
+   }
+}
+// footer__copy
+.footer__copy {
+   .copy-list {
+      display: flex;
+      column-gap: 40px;
+      &__item {
+         text-align: center;
+      }
+      &__link {
+         display: inline-block;
+         transition: all 0.3s ease;
+      }
+      &__link:hover {
+         color: #0066ff;
+      }
+   }
+}
+
+// CONTACT'S HTML
+
+.contact {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   padding: 100px 0px 163px 0px;
+
+   &__title {
+      @extend %title;
+      margin-bottom: $mp20;
+   }
+
+   &__sub-title {
+      @extend %sub-title;
+      margin-bottom: $mp50;
+   }
+
+   &__form {
+      input::placeholder {
+         color: rgba(21, 21, 21, 0.5);
+      }
+      input:first-child {
+         margin-right: 60px;
+      }
+      textarea::placeholder {
+         color: rgba(21, 21, 21, 0.5);
+      }
+
+      input {
+         width: 270px;
+         height: 60px;
+         padding: $mp18 0px $mp18 $mp20;
+         margin-bottom: $mp50;
+
+         border: 1px $bds rgba(0, 102, 255, 0.5);
+      }
+      textarea {
+         width: 100%;
+         height: 300px;
+         padding: 28px $mp20 0px $mp20;
+
+         border: 1px $bds rgba(0, 102, 255, 0.5);
+
+         resize: none;
+      }
+      button {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+
+         padding: 13px 61px;
+         margin: $mp50 auto 0 auto;
+
+         color: $white;
+         background-color: $black;
+
+         transition: scale 0.425s ease;
+      }
+      button:hover {
+         scale: $scale;
+      }
+   }
+}
+
+.show {
+   margin-bottom: $mp150;
+
+   &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: $mp40;
+
+      margin-bottom: 70px;
+   }
+   &__item {
+      img {
+         margin-bottom: $mp30;
+      }
+      .show__wrap {
+         display: flex;
+         justify-content: space-between;
+
+         .show__sub-title {
+            max-width: 450px;
+            @extend %sub-title;
+         }
+         button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 10px;
+            gap: 10px;
+
+            color: $white;
+            background-color: $blue;
+            transition: all 0.325s ease;
+         }
+         button:hover {
+            color: $black;
+            background-color: #ffa500;
+         }
+      }
+   }
+   &__button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      padding: 13px 61px;
+      margin: 0 auto;
+
+      color: $white;
+      background: $black;
+      transition: scale 0.425s ease;
+   }
+   &__button:hover {
+      scale: $scale;
+   }
+}
+.show--mb {
+   margin-bottom: 0;
+}
+
+// new-cars
+.new-cars {
+   margin-bottom: $mp100;
+
+   &__title {
+      @extend %title;
+      margin-bottom: $mp50;
+   }
+
+   &__nav {
+      display: flex;
+      justify-content: center;
+      column-gap: $mp40 * 2;
+
+      a {
+         @extend %a-hover;
+
+         color: $black;
+         text-transform: none;
+      }
+      a:hover {
+         color: $blue;
+      }
+   }
+
+   &__nav-item {
+      @extend %sub-title;
+   }
+}
+
+.car-list {
+   display: grid;
+   grid-template-rows: repeat(3, 1fr);
+   grid-template-columns: repeat(4, 1fr);
+   column-gap: $mp40;
+   row-gap: $mp100;
+
+   margin-bottom: 70px;
+   &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: $mp20;
+
+      width: 270px;
+      text-align: center;
+      border: 1px $bds $blue;
+
+      transition: $transition;
+
+      h3 {
+         @extend %sub-title;
+      }
+      img {
+         width: 100%;
+      }
+      a {
+         display: block;
+         width: 100%;
+
+         border-top: 1px $bds $blue;
+         color: $blue;
+      }
+   }
+   &__item:hover {
+      scale: $scale__car;
+   }
+}
+.car-list__button {
+   margin-bottom: $mp150;
+}
